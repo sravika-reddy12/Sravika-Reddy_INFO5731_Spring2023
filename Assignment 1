@@ -1,0 +1,597 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyM/MGBoy3nMTQnjBAujrgXu",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/sravika-reddy12/Sravika-Reddy_INFO5731_Spring2023/blob/main/Assignment%201\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "f4zX-Ejb4tP7"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## **INFO5731 Assignment One**"
+      ],
+      "metadata": {
+        "id": "RwHtyDk4442K"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Question1.  Write a Python program to generate 12 random numbers between 1 and 100. Sort the list of numbers in ascending order and print it out. Sort the list of numbers in descending order and print it out. Calculate the average for the group and print it out.(20 points)"
+      ],
+      "metadata": {
+        "id": "ebYU3wny4vwB"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Enter your response here\n",
+        "import random\n",
+        "Sra = []\n",
+        "Vika = 0\n",
+        "for a in range(1,13):\n",
+        "    Sra.append(random.randrange(1,101))\n",
+        "print(\"Random List :- \",Sra) # printing random statement\n",
+        "Sra.sort()\n",
+        "print(\"ascending order :- \",Sra) # printing ascending order\n",
+        "Sra.sort(reverse=True)\n",
+        "print(\"descending order :- \",Sra) # printing descending order\n",
+        "Vika = sum(Sra)/len(Sra)\n",
+        "print(\"Average :- \",Vika) # printing average"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "TE98EL984xXq",
+        "outputId": "31397a09-b3c6-451e-9f48-4f468b6b0f4c"
+      },
+      "execution_count": 1,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Random List :-  [47, 94, 23, 75, 36, 1, 31, 93, 13, 67, 4, 67]\n",
+            "ascending order :-  [1, 4, 13, 23, 31, 36, 47, 67, 67, 75, 93, 94]\n",
+            "descending order :-  [94, 93, 75, 67, 67, 47, 36, 31, 23, 13, 4, 1]\n",
+            "Average :-  45.916666666666664\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Question2. Write a program that will do the following string formatting tasks:(25 points)\n",
+        "    \n",
+        "    (1) Ask the user to enter two sentences.\n",
+        "    \n",
+        "    (2) Make each sentence into a list. Each element in the list should correspond to a word in the sentence. For example, if the sentence is \\\"Alas! Am I alive? This is my first python program, the program should print out ['Alas, '!', 'Am', 'I', 'alive, '?', 'This', 'is', 'my', 'first', 'python', 'program'].\n",
+        "    \n",
+        "    (3) Compare the two sentences. Print out a list of words that occur in both sentences.\n",
+        "    \n",
+        "    (4) Remove any punctuation from the sentence and print it back out. It should remove at least the following characters, but it can remove more: period(“.”), comma (“,”), semicolon (“;”), and colon (“:”),\n",
+        "    \n",
+        "    (5) Count the number of vowels in the sentences. Print out each vowel and the number of times it appears in the sentences, such as: a:2, e:1, i:0, etc "
+      ],
+      "metadata": {
+        "id": "IKhwgLMO69l7"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Enter your response here\n",
+        "import re\n",
+        "def split_sentence(inp):\n",
+        "    res=re.compile(r'\\w+|[^\\w\\s]')\n",
+        "    return res.findall(inp)\n",
+        "\n",
+        "def rem_punctuations(S):\n",
+        "    c='''!()-[]{};:'\"\\,<>./?@#$%^&*_~'''\n",
+        "    a_c = \"\"\n",
+        "    for j in S:\n",
+        "        if j not in c:  # if statement\n",
+        "            a_c += j\n",
+        "    return a_c\n",
+        "def vowel_coun(ll):\n",
+        "    cont = {}\n",
+        "    for z in \"aeiou\":\n",
+        "        ct = ll.count(z)\n",
+        "        cont[z]=ct\n",
+        "    return cont\n",
+        "# First Task!\n",
+        "sen1 = input(\"Enter sentence  1 \")   # taking input 1\n",
+        "sen2 = input(\"Enter sentence  2 \")   # taking input 2\n",
+        "# Second task!\n",
+        "t = split_sentence(sen1)\n",
+        "s = split_sentence(sen2)\n",
+        "print(\"Converting sentence 1 into list\",t)  # converting sen 1\n",
+        "print(\"Converting sentence 2 into list\",s)  # converting sen 2\n",
+        "# Third Task!\n",
+        "lst = []\n",
+        "for i in t:\n",
+        "    if i in s:\n",
+        "        lst.append(i)\n",
+        "print(\"Common Elements in both the list :- \",lst)  #printing statement\n",
+        "# Fourth Task!\n",
+        "print(\"Sentence 1 after punctuations :- \",rem_punctuations(sen1)) #printing after punctuations\n",
+        "print(\"Sentence 2 after punctuations :- \",rem_punctuations(sen2)) #printing after punctuations\n",
+        "# Fifth Task!\n",
+        "X = sen1.lower()\n",
+        "Y = sen2.lower()\n",
+        "print(\"Vowels in sentence 1 :- \",vowel_coun(X)) #printing vowels\n",
+        "print(\"Vowels in sentence 2 :- \",vowel_coun(Y)) #printing vowels"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "vI7Ueug473KB",
+        "outputId": "cf994e5a-9de6-4cee-df6c-e642a63c1fec"
+      },
+      "execution_count": 10,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter sentence  1 Hello!! I'm Sravika\n",
+            "Enter sentence  2 Hello!! Nice meeting you\n",
+            "Converting sentence 1 into list ['Hello', '!', '!', 'I', \"'\", 'm', 'Sravika']\n",
+            "Converting sentence 2 into list ['Hello', '!', '!', 'Nice', 'meeting', 'you']\n",
+            "Common Elements in both the list :-  ['Hello', '!', '!']\n",
+            "Sentence 1 after punctuations :-  Hello Im Sravika\n",
+            "Sentence 2 after punctuations :-  Hello Nice meeting you\n",
+            "Vowels in sentence 1 :-  {'a': 2, 'e': 1, 'i': 2, 'o': 1, 'u': 0}\n",
+            "Vowels in sentence 2 :-  {'a': 0, 'e': 4, 'i': 2, 'o': 2, 'u': 1}\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Question3.The formula that describes the volume V of a sphere with radius r is the following: (15 points)\n",
+        "V=4/3 *π*r3\n",
+        " \n",
+        "\n",
+        "Write a program to calculate the value of V when r is in the range of 1–10. Output the result in the following format:\n",
+        "\n",
+        "r      V\n",
+        "1      ..\n",
+        "2      ..\n",
+        "3      ...\n"
+      ],
+      "metadata": {
+        "id": "-pAfkLaQBbts"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Enter your response here\n",
+        "V = 0\n",
+        "pi = 3.14       # Pi value\n",
+        "print(\"r    V\")\n",
+        "for r in range(1,10):\n",
+        "    V = (4/3)*pi*(r)**3            # Using formula\n",
+        "    print(\"{0}    {1}\".format(r,V))  # printing the statement"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "YlJfSpMbC1Ku",
+        "outputId": "a8be4179-9b79-4be0-eb6c-936118222861"
+      },
+      "execution_count": 11,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "r    V\n",
+            "1    4.1866666666666665\n",
+            "2    33.49333333333333\n",
+            "3    113.03999999999999\n",
+            "4    267.94666666666666\n",
+            "5    523.3333333333334\n",
+            "6    904.3199999999999\n",
+            "7    1436.0266666666666\n",
+            "8    2143.5733333333333\n",
+            "9    3052.08\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "L0m2QvDhCD-O"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Question 4. In the field of Data Science, data is often formatted as a comma-delimited (CSV) file, where each line in a file corresponds to a field's value. Refer to Chapter 9 (p. 106) for more information on comma-delimited files. To answer this question, you will need to download the file Assignment1_denton_housing.csv included with this assignment. The file Assignment1_denton_housing.csv contains statistics about housing in the city of Denton from 2008 to 2014. Write a program to implement the following questions. (40 points)\n",
+        "\n",
+        "(1) (10 pts) Calculate the difference in the number of Occupied Housing Units from year to year and print it. The difference must be calculated for the consecutive years such as 2008-2009, 2009-2010 etc. Finally, print the values in the ascending order.\n",
+        "\n",
+        "(2) (10 pts) For all the years, calculate the percentage of housing units which are vacant an occupied. Print the results in the following format:\n",
+        "\n",
+        "Year Vacant Housing Units Occupied Housing Units\n",
+        "\n",
+        "2008  30%   70%                          \n",
+        "2009 ----- -----\n",
+        "2010 ----- -----\n",
+        "2011 ----- -----\n",
+        "2012 ----- -----\n",
+        "2013 ----- -----\n",
+        "2014 ----- -----\n",
+        "\n",
+        "(3) (10 pts) Calculate and print the valued and years in which the highest number of housing units were vacant and occupied. Print the results in the following format:\n",
+        "\n",
+        "                          Year\tValue\n",
+        "Vacant Housing Units\t  -----   -----\n",
+        "Occupied Housing Units\t-----   -----\n",
+        "\n",
+        "(4) (10 pts) Calculate the harmonic mean of the total housing units and print it out. You can find the information about harmonic mean here: https://ncalculators.com/statistics/harmonic-mean-calculator.htm"
+      ],
+      "metadata": {
+        "id": "aB-6hKwIFFzQ"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import pandas as pd\n",
+        "#Task 1\n",
+        "\n",
+        "df = pd.read_csv(\"https://raw.githubusercontent.com/unt-iialab/info5731-spring2022/main/assignments/Assignment1_denton_housing.csv\")\n",
+        "diff_consec_yrs = df[df[\"title_field\"] == \"Occupied Housing Units\"].sort_values(by=[\"year\"])\n",
+        "diff_consec_yrs.value.diff().sort_values()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "EQ2KMKx7CA1Y",
+        "outputId": "9f105cc3-3914-429f-ce4b-585504dc4ef1"
+      },
+      "execution_count": 16,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "17    -795.0\n",
+              "11    -303.0\n",
+              "8     1404.0\n",
+              "5     1565.0\n",
+              "2     2622.0\n",
+              "14    5091.0\n",
+              "20       NaN\n",
+              "Name: value, dtype: float64"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 16
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Second Task!\n",
+        "\n",
+        "lt_vac = df[df['title_field'] == 'Vacant Housing Units'].sort_values(by=['year'])['value'].values.tolist()\n",
+        "lt_occ = df[df['title_field'] == 'Occupied Housing Units'].sort_values(by=['year'])['value'].values.tolist()\n",
+        "lt_tot = df[df['title_field'] == 'Total Housing Units'].sort_values(by=['year'])['value'].values.tolist()\n",
+        "yr = df[df['title_field'] == 'Total Housing Units'].sort_values(by=['year'])['year'].values.tolist()\n",
+        "Vac = [str((vac/tot)*100)+' %' for vac,tot in zip(lt_vac,lt_tot)]\n",
+        "Occ = [str((occu/tot)*100)+' %' for occu, tot in zip(lt_occ, lt_tot)]\n",
+        "fi = pd.DataFrame(list(zip(yr,Vac, Occ)), columns =['Year','Vacant Housing Units', 'Occupied Housing Units'])\n",
+        "fi"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 269
+        },
+        "id": "IgKN9lv6HPh2",
+        "outputId": "7a7c2384-af84-494b-f4f9-43165c24aecb"
+      },
+      "execution_count": 17,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "   Year Vacant Housing Units Occupied Housing Units\n",
+              "0  2008  10.88265281351653 %    89.11734718648347 %\n",
+              "1  2009   9.07111572444872 %    90.92888427555128 %\n",
+              "2  2010  8.142556337081672 %    91.85744366291833 %\n",
+              "3  2011  9.379522229890688 %     90.6204777701093 %\n",
+              "4  2012  6.677600230491346 %    93.32239976950866 %\n",
+              "5  2013  8.801787504176412 %    91.19821249582358 %\n",
+              "6  2014  5.730110570363885 %    94.26988942963611 %"
+            ],
+            "text/html": [
+              "\n",
+              "  <div id=\"df-8ca28c79-2b7c-4761-95ee-bed604f9036f\">\n",
+              "    <div class=\"colab-df-container\">\n",
+              "      <div>\n",
+              "<style scoped>\n",
+              "    .dataframe tbody tr th:only-of-type {\n",
+              "        vertical-align: middle;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe tbody tr th {\n",
+              "        vertical-align: top;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead th {\n",
+              "        text-align: right;\n",
+              "    }\n",
+              "</style>\n",
+              "<table border=\"1\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr style=\"text-align: right;\">\n",
+              "      <th></th>\n",
+              "      <th>Year</th>\n",
+              "      <th>Vacant Housing Units</th>\n",
+              "      <th>Occupied Housing Units</th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <th>0</th>\n",
+              "      <td>2008</td>\n",
+              "      <td>10.88265281351653 %</td>\n",
+              "      <td>89.11734718648347 %</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>1</th>\n",
+              "      <td>2009</td>\n",
+              "      <td>9.07111572444872 %</td>\n",
+              "      <td>90.92888427555128 %</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>2</th>\n",
+              "      <td>2010</td>\n",
+              "      <td>8.142556337081672 %</td>\n",
+              "      <td>91.85744366291833 %</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>3</th>\n",
+              "      <td>2011</td>\n",
+              "      <td>9.379522229890688 %</td>\n",
+              "      <td>90.6204777701093 %</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>4</th>\n",
+              "      <td>2012</td>\n",
+              "      <td>6.677600230491346 %</td>\n",
+              "      <td>93.32239976950866 %</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>5</th>\n",
+              "      <td>2013</td>\n",
+              "      <td>8.801787504176412 %</td>\n",
+              "      <td>91.19821249582358 %</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>6</th>\n",
+              "      <td>2014</td>\n",
+              "      <td>5.730110570363885 %</td>\n",
+              "      <td>94.26988942963611 %</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n",
+              "</div>\n",
+              "      <button class=\"colab-df-convert\" onclick=\"convertToInteractive('df-8ca28c79-2b7c-4761-95ee-bed604f9036f')\"\n",
+              "              title=\"Convert this dataframe to an interactive table.\"\n",
+              "              style=\"display:none;\">\n",
+              "        \n",
+              "  <svg xmlns=\"http://www.w3.org/2000/svg\" height=\"24px\"viewBox=\"0 0 24 24\"\n",
+              "       width=\"24px\">\n",
+              "    <path d=\"M0 0h24v24H0V0z\" fill=\"none\"/>\n",
+              "    <path d=\"M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z\"/><path d=\"M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z\"/>\n",
+              "  </svg>\n",
+              "      </button>\n",
+              "      \n",
+              "  <style>\n",
+              "    .colab-df-container {\n",
+              "      display:flex;\n",
+              "      flex-wrap:wrap;\n",
+              "      gap: 12px;\n",
+              "    }\n",
+              "\n",
+              "    .colab-df-convert {\n",
+              "      background-color: #E8F0FE;\n",
+              "      border: none;\n",
+              "      border-radius: 50%;\n",
+              "      cursor: pointer;\n",
+              "      display: none;\n",
+              "      fill: #1967D2;\n",
+              "      height: 32px;\n",
+              "      padding: 0 0 0 0;\n",
+              "      width: 32px;\n",
+              "    }\n",
+              "\n",
+              "    .colab-df-convert:hover {\n",
+              "      background-color: #E2EBFA;\n",
+              "      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);\n",
+              "      fill: #174EA6;\n",
+              "    }\n",
+              "\n",
+              "    [theme=dark] .colab-df-convert {\n",
+              "      background-color: #3B4455;\n",
+              "      fill: #D2E3FC;\n",
+              "    }\n",
+              "\n",
+              "    [theme=dark] .colab-df-convert:hover {\n",
+              "      background-color: #434B5C;\n",
+              "      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);\n",
+              "      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));\n",
+              "      fill: #FFFFFF;\n",
+              "    }\n",
+              "  </style>\n",
+              "\n",
+              "      <script>\n",
+              "        const buttonEl =\n",
+              "          document.querySelector('#df-8ca28c79-2b7c-4761-95ee-bed604f9036f button.colab-df-convert');\n",
+              "        buttonEl.style.display =\n",
+              "          google.colab.kernel.accessAllowed ? 'block' : 'none';\n",
+              "\n",
+              "        async function convertToInteractive(key) {\n",
+              "          const element = document.querySelector('#df-8ca28c79-2b7c-4761-95ee-bed604f9036f');\n",
+              "          const dataTable =\n",
+              "            await google.colab.kernel.invokeFunction('convertToInteractive',\n",
+              "                                                     [key], {});\n",
+              "          if (!dataTable) return;\n",
+              "\n",
+              "          const docLinkHtml = 'Like what you see? Visit the ' +\n",
+              "            '<a target=\"_blank\" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'\n",
+              "            + ' to learn more about interactive tables.';\n",
+              "          element.innerHTML = '';\n",
+              "          dataTable['output_type'] = 'display_data';\n",
+              "          await google.colab.output.renderOutput(dataTable, element);\n",
+              "          const docLink = document.createElement('div');\n",
+              "          docLink.innerHTML = docLinkHtml;\n",
+              "          element.appendChild(docLink);\n",
+              "        }\n",
+              "      </script>\n",
+              "    </div>\n",
+              "  </div>\n",
+              "  "
+            ]
+          },
+          "metadata": {},
+          "execution_count": 17
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Third task!\n",
+        "\n",
+        "lt_vac = df[df['title_field'] == 'Vacant Housing Units'].sort_values(by=['year'])['value'].values.tolist()\n",
+        "lt_vac"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "4DHNfkRNHqat",
+        "outputId": "ecde5794-e23a-41ee-92fa-8d87706832be"
+      },
+      "execution_count": 18,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "[4483, 3583, 3635, 4213, 3013, 4215, 2814]"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 18
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Fourth task!\n",
+        "\n",
+        "df_occ = df[df[\"title_field\"] == \"Occupied Housing Units\"]\n",
+        "df_vac = df[df['title_field'] == 'Vacant Housing Units']\n",
+        "high_df = pd.concat([df_occ[df_occ['value'] == df_occ['value'].max()],df_vac[df_vac['value'] == df_vac['value'].max()]])\n",
+        "print(high_df[['title_field','year','value']])"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "64zoUk3qH2-R",
+        "outputId": "41c8825c-e428-4379-f232-7c1abbc1da38"
+      },
+      "execution_count": 19,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "               title_field  year  value\n",
+            "2   Occupied Housing Units  2014  46295\n",
+            "19    Vacant Housing Units  2008   4483\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Fifth Task\n",
+        "\n",
+        "from scipy import stats\n",
+        "print('Harmonic mean of total housing units is {0}'.format(stats.hmean(lt_tot)))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "JFFR3D_5ICbU",
+        "outputId": "2c1be616-932d-4b6a-e848-97de776f0694"
+      },
+      "execution_count": 21,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Harmonic mean of total housing units is 44398.28543969185\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
