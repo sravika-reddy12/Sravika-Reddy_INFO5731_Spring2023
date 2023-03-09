@@ -1,1 +1,15 @@
-gyu fgh 
+Feature Selection (FS) methods alleviate key problems in classification procedures as they are used to improve classification accuracy, reduce data dimensionality, and remove irrelevant data. 
+FS methods have received a great deal of attention from the text classification community. However, only a few literature surveys include them focusing on text classification, and the ones available are either a superficial analysis or present a very small set of work in the subject.
+For this reason, we conducted a Systematic Literature Review (SLR) that asses 1376 unique papers from journals and conferences published in the past eight years (2013–2020). 
+After abstract screening and full-text eligibility analysis, 175 studies were included in our SLR. Our contribution is twofold. We have considered several aspects of each proposed method and mapped them into a new categorization schema.
+Additionally, we mapped the main characteristics of the experiments, identifying which datasets, languages, machine learning algorithms, and validation methods have been used to evaluate new and existing techniques.
+By following the SLR protocol, we allow the replication of our revision process and minimize the chances of bias while classifying the included studies. By mapping issues and experiment settings, our SLR helps researchers to develop and position new studies with respect to the existing literature.
+ACM publishes more than 50 scholarly peer-reviewed journals in dozens of computing and information technology disciplines. 
+Available in print and online, ACM's high-impact, peer-reviewed journals constitute a vast and comprehensive archive of computing innovation, covering emerging and established computing research for both practical and theoretical applications.
+ACM journal editors are thought leaders in their fields, and ACM's emphasis on rapid publication ensures minimal delay in communicating exciting new ideas and discoveries.
+ACM Books is a series of scholarly research monographs and graduate-level texts, authored by computer scientists and practitioners at the forefront of computing technology and includes books across the entire spectrum of computer science, geared to researchers, educators, practitioners and students.
+Comprehensive in its coverage of both established and emerging computing fields, the series focuses on graduate-level textbooks, research monographs, practitioner-level professional books, and books devoted to the history and social impact of computing.
+The ACM Books editorial board is composed of world-renowned professionals who represent the field's major areas of study.
+ACM's flagship magazine, Communications of the ACM, is the premier chronicler of computing technologies, covering the latest discoveries, innovations, and research that inspire and influence the field. 
+Each month, Communications brings readers in-depth stories of emerging areas of computer science, new trends in IT, and practical research applications. 
+Industry leaders choose Communications to debate technology implications, public policies, engineering challenges, and market trends.
